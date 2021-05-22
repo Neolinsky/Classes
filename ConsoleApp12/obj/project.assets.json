@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\student\\source\\repos\\ConsoleApp12\\ConsoleApp12\\ConsoleApp12.csproj",
+      "projectUniqueName": "C:\\Users\\student\\Desktop\\classes\\Classes\\ConsoleApp12\\ConsoleApp12.csproj",
       "projectName": "ConsoleApp12",
-      "projectPath": "C:\\Users\\student\\source\\repos\\ConsoleApp12\\ConsoleApp12\\ConsoleApp12.csproj",
+      "projectPath": "C:\\Users\\student\\Desktop\\classes\\Classes\\ConsoleApp12\\ConsoleApp12.csproj",
       "packagesPath": "C:\\Users\\student\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\student\\source\\repos\\ConsoleApp12\\ConsoleApp12\\obj\\",
+      "outputPath": "C:\\Users\\student\\Desktop\\classes\\Classes\\ConsoleApp12\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"

@@ -7,57 +7,44 @@ namespace ConsoleApp12
 		static void Main(string[] args)
 		{
 
+			Transport[] transport = new Transport[5];
 
-			Car car = new Car("Mersedes", 250000, 280, 8);
+			transport[0] = new Car("Black", 123543.54, 300.1, 9.0);
 
-			Console.WriteLine($"Time to get to top speed: {car.Accelerate(0, car.MaxSpeed)}");
+			transport[1] = new Bycicle("Purpul", 12382.12, "MBX");
 
-			car.Beep();
+			transport[2] = new Holicopter("Fast", 123000, "Invisible", 0);
 
-			Console.WriteLine();
-			Console.WriteLine();
+			transport[3] = new SpaceShatel("White", 1982391823, "Dragon", "SpaceX");
 
-
-			Bycicle bycicle = new Bycicle("Red");
-
-			Console.WriteLine($"I'm {bycicle.GetColor()}");
-			Console.WriteLine($"My price is: {bycicle.getPrice((bycicle.Color))}");
-
-			Holicopter holicopter = new Holicopter("Cion", 1000000.74);
-
-			Console.WriteLine();
-			Console.WriteLine();
-
-			Console.WriteLine($"Look {holicopter.Fliying()}");
-			Console.WriteLine($"The price is: {holicopter.GetPrice()}");
-
-			Console.WriteLine();
-			Console.WriteLine();
-
-			SpaceShatel spaceShatel = new SpaceShatel("Bruuahh", "SpaceX");
-
-			spaceShatel.SetDestination("Mars");
-			Console.WriteLine($"Destenation is the {spaceShatel.GetDestination()}");
-
+			foreach (Transport t in transport)
+			{
+				t.Move();
+			}
 		}
 	}
 
 
-	class Car
+	class Car : Transport
 	{
-		string Color;
-		string Mark;
+		
+		
 
 		public double MaxSpeed;
-		double Price;
+		
 
 		public double AccelerationPerSecond;
 		public double CurrentSpeed = 0;
 
-		public Car(string mark, double price, double maxSpeed, double accelerationPerSecond)
+		public Car(
+			string color,
+			double price,
+			double maxSpeed,
+			double accelerationPerSecond
+			) : base (color, price)
 		{
-			Mark = mark;
-			Price = price;
+			this.color = color;
+			this.price = price;
 			MaxSpeed = maxSpeed;
 			AccelerationPerSecond = accelerationPerSecond;
 		}
@@ -73,30 +60,29 @@ namespace ConsoleApp12
 		}
 
 
-		public void Beep()
+		public override void Move()
 		{
-			Console.WriteLine("Beep-beep!!");
+			Console.WriteLine("I'm moving: Beep-beep!!");
 		}
 	}
 
-	class Bycicle
-	{
-		public string Color;
+	class Bycicle : Transport
+	{		
 		string Weight;
+		string type;
 
-		double Price;
-		string Type;
-
-		public Bycicle(string color)
+		public Bycicle(
+			string color,
+			double price,
+			string type
+			) : base (color, price)
 		{
-			Color = color;
+			this.type = type;
+			this.color = color;
+			this.price = price;
+		}
+
 		
-		}
-
-		public  string GetColor()
-		{
-			return Color;
-		}
 
 		public double getPrice(string color)
 		{
@@ -114,38 +100,46 @@ namespace ConsoleApp12
 			return price;
 		}
 
+		public override void Move()
+		{
+			Console.WriteLine("I'm moving: Horn-Horn!");
+		}
+
 	}
 
-	class Holicopter
+	class Holicopter : Transport
 	{
-		string Color;
+		
 		string Type;
-
-
-		double Price;
 		double TopSpeed;
 
 
-		public Holicopter(string color, double price)
+		public Holicopter
+			(
+			string type,
+			double topspeed,
+			string color,
+			double price
+			) : base(color, price)
+
 		{
-			Price = price;
-			Color = color;
+			this.color = color;
+			this.price = price;
+			this.Type = type;
+			this.TopSpeed = topspeed;
 		}
 
-		public string Fliying()
+		public override void Move()
 		{
-			return "The holicopter is flying *Loud noise!*";
+			Console.WriteLine("I'm Flying: Whzuh-Whzuh!");
 		}
 
-		public double GetPrice()
-		{
-			return Price;
-		}
+		
 
 
 	}
 
-	class SpaceShatel
+	class SpaceShatel : Transport
 	{
 		string Destination;
 		string Name;
@@ -153,10 +147,12 @@ namespace ConsoleApp12
 		double MaxSpeed;
 		string WhoCreated;
 
-		public SpaceShatel(string name, string whoCreated)
+		public SpaceShatel(string color, double price, string name, string whoCreated) : base(color,price)
 		{
 			Name = name;
 			WhoCreated = whoCreated;
+			this.color = color;
+			this.price = price;
 		}
 
 		public string GetDestination()
@@ -168,6 +164,11 @@ namespace ConsoleApp12
 		public void SetDestination(string destination)
 		{
 			Destination = destination;
+		}
+
+		public override void Move()
+		{
+			Console.WriteLine("Zoom-zoom-zoom, I'm going to the Moon!");
 		}
 	}
 }
